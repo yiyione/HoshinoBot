@@ -11,7 +11,7 @@ from .argparse import ArgParser
 from .exception import *
 
 sv = Service('clanbattle', manage_priv=Privilege.SUPERUSER, enable_on_default=True)
-SORRY = 'ごめんなさい！嘤嘤嘤(〒︿〒)'
+SORRY = 'ごめんなさい#嘤嘤嘤(〒︿〒)'
 
 _registry:Dict[str, Tuple[Callable, ArgParser]] = {}
 
@@ -23,7 +23,7 @@ async def _clanbattle_bus(bot:NoneBot, ctx):
         if m.type == 'text':
             start = m.data.get('text', '').lstrip()
             break
-    if not start or start[0] not in '!！':
+    if not start or start[0] not in '#':
         return
 
     # find cmd
@@ -73,35 +73,35 @@ QUICK_START = f'''
 ======================
 快速开始指南
 【必读事项】
-※会战系命令均以感叹号!开头，半全角均可
+※会战系命令均以感叹号#开头，半全角均可
 ※命令与参数之间必须以【空格】隔开
 ※下面以使用场景-使用例给出常用指令的说明
 【群初次使用】
-!建会 N自警団（カォン） Sjp
-!建会 N哞哞自衛隊 Stw
-!建会 N自卫团 Scn
+#建会 N自警団（カォン） Sjp
+#建会 N哞哞自衛隊 Stw
+#建会 N自卫团 Scn
 【注册成员】
-!入会 祐树
-!入会 佐树 @123456789
+#入会 祐树
+#入会 佐树 @123456789
 【上报伤害】
-!出刀 514w
-!收尾
-!补时刀 114w
+#出刀 514w
+#收尾
+#补时刀 114w
 【预约Boss】
-!预约 5 M留言
-!取消预约 5
+#预约 5 M留言
+#取消预约 5
 【锁定Boss】
-!锁定
-!解锁
+#锁定
+#解锁
 【查询余刀&催刀】
-!查刀
-!催刀
+#查刀
+#催刀
 
 ※前往 t.cn/A6wBzowv 查看完整命令一览表
 ※如有问题请先阅读一览表底部的FAQ
 ※使用前请务必【逐字】阅读开头的必读事项
 '''.rstrip()
 
-@on_command('!帮助', aliases=('！帮助', '!幫助', '！幫助', '!help', '！help'), only_to_me=False)
+@on_command('#帮助', aliases=('#帮助', '#幫助', '#幫助', '#help', '#help'), only_to_me=False)
 async def cb_help(session:CommandSession):
     await session.send(QUICK_START, at_sender=True)
