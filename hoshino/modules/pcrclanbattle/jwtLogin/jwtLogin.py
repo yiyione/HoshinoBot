@@ -7,7 +7,7 @@ from hoshino import util
 from hoshino.res import R
 from hoshino.service import Service, Privilege as Priv
 
-sv = Service('accessToken')
+sv = Service('jwtLogin')
 
 def get_config():
     return util.load_config(__file__)
