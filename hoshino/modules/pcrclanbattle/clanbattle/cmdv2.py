@@ -420,16 +420,12 @@ def _gen_namelist_text(bm:BattleMaster, uidlist:List[int], memolist:List[str]=No
     return mems
 
 
-<<<<<<< HEAD
-SUBSCRIBE_TIP = 'β>预约现在可附留言(不可包含空格)\n例："#预约 5 m留言"'
-=======
 SUBSCRIBE_TIP = '''
 ※预约可附留言(不可包含空格)
 例："!预约 5 m留言"
 ※使用"!预约上限"可设置上限
 例："!预约上限 B5 6"将五王的预约上限设置为6'
 '''
->>>>>>> master
 
 @cb_cmd('预约', ArgParser(usage='#预约 <Boss号> M留言', arg_dict={
     '': ArgHolder(tip='Boss编号', type=boss_code),
@@ -549,9 +545,6 @@ async def clear_subscribe(bot:NoneBot, ctx:Context_T, args:ParseResult):
         raise NotFoundError(f"无人预约{bm.int2kanji(boss)}王")
 
 
-<<<<<<< HEAD
-@cb_cmd(('挂树', '上树'), ArgParser('#挂树'))
-=======
 @cb_cmd(('预约上限', ), ArgParser(usage='!预约上限 B<Boss号> <上限值>', arg_dict={
     'B': ArgHolder(tip='Boss编号', type=boss_code),
     '': ArgHolder(tip='上限值', type=int)
@@ -570,7 +563,6 @@ async def set_subscribe_limit(bot:NoneBot, ctx, args:ParseResult):
 
 
 @cb_cmd(('挂树', '上树'), ArgParser('!挂树'))
->>>>>>> master
 async def add_sos(bot:NoneBot, ctx:Context_T, args:ParseResult):
     bm = BattleMaster(ctx['group_id'])
     uid = ctx['user_id']
@@ -675,11 +667,7 @@ async def show_progress(bot:NoneBot, ctx:Context_T, args:ParseResult):
     await bot.send(ctx, '\n' + msg, at_sender=True)
 
 
-<<<<<<< HEAD
-@cb_cmd('伤害统计', ArgParser(usage='#伤害统计'))
-=======
 @cb_cmd(('统计', '伤害统计'), ArgParser(usage='!伤害统计'))
->>>>>>> master
 async def stat_damage(bot:NoneBot, ctx:Context_T, args:ParseResult):
     bm = BattleMaster(ctx['group_id'])
     now = datetime.now()
@@ -737,11 +725,7 @@ async def stat_damage(bot:NoneBot, ctx:Context_T, args:ParseResult):
     await bot.send(ctx, msg, at_sender=True)
 
 
-<<<<<<< HEAD
-@cb_cmd(('统计', '分数统计'), ArgParser(usage='#分数统计'))
-=======
 @cb_cmd('分数统计', ArgParser(usage='!分数统计'))
->>>>>>> master
 async def stat_score(bot:NoneBot, ctx:Context_T, args:ParseResult):
     bm = BattleMaster(ctx['group_id'])
     now = datetime.now()
